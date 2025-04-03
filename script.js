@@ -3,7 +3,6 @@ const socket = io('https://backend-voting-app-2hhd.onrender.com');
 const progressBoxes = document.querySelectorAll('.progress-box');
 const percentTags = document.querySelectorAll('.percent-tag');
 const totalVotesElem = document.getElementById('totalVotes');
-const showResultsBtn = document.getElementById('showResults');
 
 for (let i = 0; i < progressBoxes.length; i++){
     const elem = progressBoxes[i];
@@ -12,12 +11,7 @@ for (let i = 0; i < progressBoxes.length; i++){
     })
 }
 
-
 let vote = false;
-
-showResultsBtn.addEventListener('click', () => {
-    socket.emit('get-results');
-});
 
 const addVote = (elem,id) =>{
     if (vote){
